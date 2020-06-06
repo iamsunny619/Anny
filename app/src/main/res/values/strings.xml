@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Anny</string>
+    <string name="asterick_operator">*</string>
+
+    <string name="s_or_s">%s | %s</string>
+    <string name="message">Message</string>
+    <string name="chat">Chat</string>
+    <string name="profile">Profile</string>
+    <string name="others">Others</string>
+    <string name="share">Share</string>
+    <string name="send">Send</string>
+
+    <string name="navigation_drawer_open">open navigation drawer</string>
+    <string name="navigation_drawer_close">close navigation drawer</string>
+
+    <string name="android">Android</string>
+    <string name="iamsunny619_gmail_com">iamsunny619@gmail.com</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="other_methods_for_drawer">Other Methods for drawer</string>
+    <string name="login">Login</string>
+    <string name="signup">SignUp</string>
+    <string name="register">Register</string>
+    <string name="anny">Anny</string>
+    <string name="comming_soon">comming Soon</string>
+    <string name="ok">ok</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="explore">explore</string>
+    <string name="your_device_dont_support_speech_input">your device not support voice input</string>
+</resources>
