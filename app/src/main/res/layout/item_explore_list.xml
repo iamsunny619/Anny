@@ -5,11 +5,11 @@
 
     <data>
 
-        <import type="com.example.anny.ui.utils.extension.BindingAdapters" />
+        <import type="com.starter.anny.ui.utils.extension.BindingAdapters" />
 
         <variable
             name="exploreModel"
-            type="com.example.anny.ui.bottomnav.explore.model.ExploreItemModel" />
+            type="com.starter.anny.ui.bottomnav.explore.model.ExploreItemModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

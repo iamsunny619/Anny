@@ -5,19 +5,19 @@
     app:startDestination="@id/profileFragment2">
     <fragment
         android:id="@+id/profileFragment2"
-        android:name="com.example.anny.ui.bottomnav.chatt.ChattWithUsFragment"
+        android:name="com.starter.anny.ui.bottomnav.chatt.ChattWithUsFragment"
         android:label="ProfileFragment" />
     <fragment
         android:id="@+id/pictureFragment"
-        android:name="com.example.anny.ui.bottomnav.takepicture.PictureFragment"
+        android:name="com.starter.anny.ui.bottomnav.takepicture.PictureFragment"
         android:label="PictureFragment" />
     <fragment
         android:id="@+id/gameListFragment"
-        android:name="com.example.anny.ui.bottomnav.games.GameListFragment"
+        android:name="com.starter.anny.ui.bottomnav.games.GameListFragment"
         android:label="GameListFragment" />
     <fragment
         android:id="@+id/exploreFragment"
-        android:name="com.example.anny.ui.bottomnav.explore.ExploreFragment"
+        android:name="com.starter.anny.ui.bottomnav.explore.ExploreFragment"
         android:label="ExploreFragment" />
 
 

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.starter.anny.ui.utils.extension.BindingAdapters" />
+
+        <variable
+            name="storeModel"
+            type="com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.model.StoresModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_6sdp"
+        android:orientation="vertical"
+        app:cardCornerRadius="@dimen/_4sdp"
+        app:cardElevation="@dimen/_4sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardViewImage"
+                android:layout_width="@dimen/_54sdp"
+                android:layout_height="@dimen/_54sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginBottom="@dimen/_2sdp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_4sdp"
+                app:cardElevation="@dimen/_2sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/imgProduct"
+                    imageResourceForFresco="@{storeModel.productImage}"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:padding="@dimen/_8sdp"
+                    app:actualImageScaleType="none"
+                    app:placeholderImage="@drawable/ic_place_holder"
+                    app:placeholderImageScaleType="fitCenter"
+                    tools:srcCompat="@drawable/ic_place_holder" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/montserrat_bold"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text='@{storeModel.shopName}'
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toStartOf="@+id/imgArrow"
+                app:layout_constraintStart_toEndOf="@+id/cardViewImage"
+                app:layout_constraintTop_toTopOf="@+id/cardViewImage"
+                tools:text="@tools:sample/lorem/random" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtAddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_1sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/montserrat_medium"
+                android:maxLines="2"
+                android:text='@{storeModel.shopAddress}'
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11ssp"
+                app:layout_constraintEnd_toEndOf="@+id/txtName"
+                app:layout_constraintStart_toStartOf="@+id/txtName"
+                app:layout_constraintTop_toBottomOf="@+id/txtName"
+                tools:text="@tools:sample/lorem" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                android:tint="@color/orange"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

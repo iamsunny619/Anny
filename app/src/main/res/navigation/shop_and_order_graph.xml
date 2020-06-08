@@ -7,8 +7,24 @@
 
     <fragment
         android:id="@+id/shopAndOrderFragment"
-        android:name="com.example.anny.ui.bottomnav.explore.shopandorder.ShopAndOrderFragment"
+        android:name="com.starter.anny.ui.bottomnav.explore.shopandorder.ShopAndOrderFragment"
         android:label="ShopAndOrderFragment"
-        tools:layout="@layout/fragment_shop_and_order" />
+        tools:layout="@layout/fragment_shop_and_order">
+        <action
+            android:id="@+id/action_shopAndOrderFragment_to_storeItemsAndBuyFragment"
+            app:destination="@id/storeItemsAndBuyFragment"
+            app:popUpTo="@id/shopAndOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/storeItemsAndBuyFragment"
+        android:name="com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.storeitemsanddetails.StoreItemsAndBuyFragment"
+        android:label="StoreItemsAndBuyFragment"
+        tools:layout="@layout/fragment_store_items_and_buy" >
+
+        <argument
+            android:name="shopDetails"
+            app:nullable="true"
+            app:argType="com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.model.StoresModel" />
+    </fragment>
 
 </navigation>

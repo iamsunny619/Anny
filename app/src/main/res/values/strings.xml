@@ -36,4 +36,11 @@
     <string name="login_failed">"Login failed"</string>
     <string name="explore">explore</string>
     <string name="your_device_dont_support_speech_input">your device not support voice input</string>
+    <string name="top_brands">Top Brands</string>
+    <string name="filter_by">Filter by</string>
+    <string name="categories">categories</string>
+    <string name="subcategories">subcategories</string>
+    <string name="search_for_product">Search for product</string>
+    <string name="extra_charges_may_apply">extra charges may apply</string>
+    <string name="go_to_cart">go to cart</string>
 </resources>

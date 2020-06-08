@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.starter.anny.ui.utils.extension.BindingAdapters" />
+
+        <variable
+            name="storeModel"
+            type="com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.model.StoresModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:fitsSystemWindows="true"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/orange">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/toolBar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:theme="@style/ToolBarTheme"
+                    app:contentInsetEnd="0dp"
+                    app:contentInsetLeft="0dp"
+                    app:contentInsetRight="0dp"
+                    app:titleTextColor="@color/white"
+                    app:contentInsetStart="0dp"
+                    android:background="@color/orange"
+                    app:contentInsetStartWithNavigation="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
+                    app:title="Buy"
+                    app:titleTextAppearance="@style/ToolBarTextAppearance" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLocationName"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/montserrat_semi_bold"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:backgroundTint="@color/orange"
+                    android:textSize="@dimen/_12ssp"
+                    app:icon="@drawable/ic_baseline_place_24"
+                    app:iconGravity="end"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@tools:sample/lorem" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constrainlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/startGuideLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/_10sdp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/endGuideLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/_10sdp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/topGuideLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_begin="@dimen/_10sdp" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_54sdp"
+                    android:background="@color/orange"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/imgStore"
+                    imageResourceForFresco="@{storeModel.productImage}"
+                    android:layout_width="@dimen/_48sdp"
+                    android:layout_height="@dimen/_48sdp"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:background="@color/white"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:elevation="@dimen/_1sdp"
+                    android:padding="@dimen/_2sdp"
+                    app:actualImageScaleType="none"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholderImage="@drawable/ic_place_holder"
+                    app:roundedCornerRadius="@dimen/_4sdp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtStoreName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:includeFontPadding="false"
+                    android:maxLines="2"
+                    android:text="@{storeModel.shopName}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/imgStore"
+                    app:layout_constraintTop_toTopOf="@id/imgStore"
+                    tools:text="@tools:sample/lorem" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtAddress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:lineSpacingExtra="0dp"
+                    android:maxLines="3"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintEnd_toEndOf="@+id/txtStoreName"
+                    app:layout_constraintStart_toStartOf="@+id/txtStoreName"
+                    app:layout_constraintTop_toBottomOf="@+id/txtStoreName"
+                    tools:text="@tools:sample/lorem" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtFilterBy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:text="@string/filter_by"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11ssp"
+                    app:layout_constraintStart_toStartOf="@id/startGuideLine"
+                    app:layout_constraintTop_toBottomOf="@id/view" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCategories"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_30sdp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:paddingStart="@dimen/_12sdp"
+                    android:paddingEnd="@dimen/_12sdp"
+                    android:text="@string/categories"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_8ssp"
+                    app:cornerRadius="@dimen/_16sdp"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtFilterBy"
+                    app:layout_constraintEnd_toStartOf="@+id/btnSubCategories"
+                    app:layout_constraintStart_toEndOf="@+id/txtFilterBy"
+                    app:layout_constraintTop_toTopOf="@+id/txtFilterBy"
+                    app:strokeColor="@color/white_eaeaea"
+                    app:strokeWidth="1dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSubCategories"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_30sdp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:paddingStart="@dimen/_12sdp"
+                    android:paddingEnd="@dimen/_12sdp"
+                    android:text="@string/subcategories"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_8ssp"
+                    app:cornerRadius="@dimen/_16sdp"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtFilterBy"
+                    app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+                    app:layout_constraintStart_toEndOf="@+id/btnCategories"
+                    app:layout_constraintTop_toTopOf="@+id/txtFilterBy"
+                    app:strokeColor="@color/white_eaeaea"
+                    app:strokeWidth="1dp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardSearchView"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_36sdp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/_19sdp"
+                    app:cardElevation="@dimen/_4sdp"
+                    app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+                    app:layout_constraintStart_toStartOf="@id/startGuideLine"
+                    app:layout_constraintTop_toBottomOf="@+id/btnCategories">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingStart="@dimen/_8sdp"
+                        android:paddingEnd="@dimen/_8sdp">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/imgSearch"
+                            android:layout_width="@dimen/_28sdp"
+                            android:layout_height="@dimen/_28sdp"
+                            android:padding="@dimen/_6sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_blue_search_24dp" />
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/edtSearch"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@null"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:gravity="start|center_vertical"
+                            android:hint="@string/search_for_product"
+                            android:imeOptions="actionSearch"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textColor="@color/black_222222"
+                            android:textColorHint="@color/gray_6B6B6B"
+                            android:textSize="@dimen/_11ssp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/imgVoice"
+                            app:layout_constraintStart_toEndOf="@+id/imgSearch"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/imgVoice"
+                            android:layout_width="@dimen/_28sdp"
+                            android:layout_height="0dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:padding="@dimen/_6sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/imgScan"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_blue_voice_24dp" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/imgScan"
+                            android:layout_width="@dimen/_28sdp"
+                            android:layout_height="0dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:padding="@dimen/_6sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_blue_scan_24dp" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvShopItems"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+                    app:layout_constraintStart_toStartOf="@id/startGuideLine"
+                    app:layout_constraintTop_toBottomOf="@id/cardSearchView"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_shop_item_to_buy" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardGoToCart"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_43sdp"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    app:cardCornerRadius="@dimen/_22sdp"
+                    app:cardElevation="@dimen/_1sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+                    app:layout_constraintStart_toStartOf="@id/startGuideLine">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/orange">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnGoToCart"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_16sdp"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="@string/go_to_cart"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:rippleColor="@color/transparent"
+                            app:textAllCaps="true" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/txtItemCountAndPrice"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10ssp"
+                            app:layout_constraintBottom_toTopOf="@+id/txtExtraChargesMayApply"
+                            app:layout_constraintEnd_toStartOf="@id/btnGoToCart"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_chainStyle="packed"
+                            app:textAllCaps="true"
+                            tools:text="2 item | \u20B9280" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/txtExtraChargesMayApply"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="@string/extra_charges_may_apply"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_9ssp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/btnGoToCart"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtItemCountAndPrice" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
