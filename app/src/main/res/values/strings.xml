@@ -43,4 +43,14 @@
     <string name="search_for_product">Search for product</string>
     <string name="extra_charges_may_apply">extra charges may apply</string>
     <string name="go_to_cart">go to cart</string>
+    <string name="_0">0</string>
+    <string name="in_your_cart">in your cart</string>
+    <string name="pay_amount">pay amount</string>
+    <string name="total">total</string>
+    <string name="taxes_and_charges">taxes and charges</string>
+    <string name="item_total">item total</string>
+    <string name="select_preferred_time_of_pickup">select preffered time of pickup</string>
+    <string name="select_preferred_date_of_pickup">select prefer date of pickup</string>
+    <string name="select_delivery_option">select deleviery option</string>
+    <string name="sort_by">sort by</string>
 </resources>

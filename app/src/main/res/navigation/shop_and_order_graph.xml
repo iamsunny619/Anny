@@ -19,12 +19,26 @@
         android:id="@+id/storeItemsAndBuyFragment"
         android:name="com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.storeitemsanddetails.StoreItemsAndBuyFragment"
         android:label="StoreItemsAndBuyFragment"
-        tools:layout="@layout/fragment_store_items_and_buy" >
+        tools:layout="@layout/fragment_store_items_and_buy">
 
+        <action
+            android:id="@+id/action_storeItemsAndBuyFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
         <argument
             android:name="shopDetails"
-            app:nullable="true"
-            app:argType="com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.model.StoresModel" />
+            app:argType="com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.model.StoresModel"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.storeitemsanddetails.cart.CartFragment"
+        android:label="CartFragment"
+        tools:layout="@layout/fragment_cart">
+
+        <argument
+            android:name="cartItemFound"
+            app:argType="com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.storeitemsanddetails.model.StoreItemModel"
+            app:nullable="true" />
     </fragment>
 
 </navigation>

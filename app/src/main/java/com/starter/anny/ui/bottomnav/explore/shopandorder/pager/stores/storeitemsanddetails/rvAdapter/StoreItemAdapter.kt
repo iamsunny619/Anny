@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.starter.anny.R
 import com.starter.anny.databinding.ItemShopItemToBuyBinding
 import com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.storeitemsanddetails.model.StoreItemModel
+import kotlinx.android.synthetic.main.item_shop_item_to_buy.view.*
 
 class StoreItemAdapter(
     items: List<StoreItemModel>,
@@ -36,6 +37,8 @@ class StoreItemAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(position)
         holder.itemView.setOnClickListener(holder)
+        holder.itemView.imgPlus.setOnClickListener(holder)
+        holder.itemView.imgMinus.setOnClickListener(holder)
     }
 
     override fun getItemCount(): Int {
@@ -45,8 +48,31 @@ class StoreItemAdapter(
     inner class ViewHolder(private val binding: ItemShopItemToBuyBinding) :
         RecyclerView.ViewHolder(binding.root), View.OnClickListener {
         override fun onClick(v: View?) {
+            val item = items[adapterPosition]
             v?.let {
-                itemClick.invoke(it, adapterPosition, items[adapterPosition])
+                when (v.id) {
+                    R.id.imgPlus -> {
+                        if (itemCount < 100) {
+                            item.itemCount = item.itemCount?.plus(1)
+                            binding.txtNumbers.text = item.itemCount.toString()
+                            item.itemChanged = true
+                            //notifyItemChanged(adapterPosition)
+                        } else {
+                            item.itemChanged = false
+                        }
+                    }
+                    R.id.imgMinus -> {
+                        if (Integer.parseInt(binding.txtNumbers.text.toString()) > 0) {
+                            item.itemCount = item.itemCount?.minus(1)
+                            binding.txtNumbers.text = item.itemCount.toString()
+                            item.itemChanged = true
+                            // notifyItemChanged(adapterPosition)
+                        } else {
+                            item.itemChanged = false
+                        }
+                    }
+                }
+                itemClick.invoke(it, adapterPosition, item)
             }
         }
 
@@ -55,7 +81,6 @@ class StoreItemAdapter(
         ) {
             binding.storeItemModel = items[position]
             binding.executePendingBindings()
-
         }
     }
 }

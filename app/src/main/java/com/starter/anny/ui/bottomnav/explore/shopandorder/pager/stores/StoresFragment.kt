@@ -53,15 +53,13 @@ class StoresFragment : BaseBindingFragment<FragmentStoresBinding>(),
                     StoresModel(img2, "KatulBoard Shop", "Nepali Para")
                 )
             ) { _, _, item ->
-                item?.let {
-                    Boast.makeText(requireContext(), item.shopName.toString(), Toast.LENGTH_SHORT)
-                        .show()
-                    val args =
-                        ShopAndOrderFragmentDirections.actionShopAndOrderFragmentToStoreItemsAndBuyFragment(
-                            it
-                        )
-                    parentNavController.navigate(args)
-                }
+                Boast.makeText(requireContext(), item?.shopName.toString(), Toast.LENGTH_SHORT)
+                    .show()
+                val args =
+                    ShopAndOrderFragmentDirections.actionShopAndOrderFragmentToStoreItemsAndBuyFragment(
+                        item
+                    )
+                parentNavController.navigate(args)
             }
         rvShopStoresList.setHasFixedSize(true)
         rvShopStoresList.itemAnimator = DefaultItemAnimator()

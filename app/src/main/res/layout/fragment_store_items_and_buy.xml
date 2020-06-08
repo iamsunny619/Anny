@@ -63,6 +63,8 @@
                     android:textSize="@dimen/_12ssp"
                     app:icon="@drawable/ic_baseline_place_24"
                     app:iconGravity="end"
+                    android:textColor="@color/white"
+                    app:iconTint="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -344,11 +346,10 @@
                             app:textAllCaps="true" />
 
                         <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/txtItemCountAndPrice"
-                            android:layout_width="0dp"
+                            android:id="@+id/txtItemCount"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/_16sdp"
-                            android:layout_marginEnd="@dimen/_8sdp"
                             android:ellipsize="end"
                             android:fontFamily="@font/montserrat_bold"
                             android:maxLines="1"
@@ -356,13 +357,36 @@
                             android:textAllCaps="true"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_10ssp"
+                            android:text="@string/in_your_cart"
                             app:layout_constraintBottom_toTopOf="@+id/txtExtraChargesMayApply"
-                            app:layout_constraintEnd_toStartOf="@id/btnGoToCart"
+                            app:layout_constraintEnd_toStartOf="@id/txtItemPriceTotal"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_chainStyle="packed"
                             app:textAllCaps="true"
-                            tools:text="2 item | \u20B9280" />
+                            android:layout_marginEnd="@dimen/_4sdp"
+                            tools:text="2 item" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/txtItemPriceTotal"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textAllCaps="true"
+                            app:layout_constraintEnd_toStartOf="@id/btnGoToCart"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_10ssp"
+                            android:gravity="start"
+                            app:layout_constraintTop_toTopOf="@id/txtItemCount"
+                            app:layout_constraintBottom_toBottomOf="@id/txtItemCount"
+                            app:layout_constraintStart_toEndOf="@id/txtItemCount"
+                            app:textAllCaps="true"
+                            tools:text="100rs" />
+
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/txtExtraChargesMayApply"
@@ -380,7 +404,7 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@id/btnGoToCart"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/txtItemCountAndPrice" />
+                            app:layout_constraintTop_toBottomOf="@+id/txtItemCount" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </com.google.android.material.card.MaterialCardView>

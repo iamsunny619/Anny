@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        app:statusBarBackground="@color/transparent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:backgroundTint="@color/orange"
+            android:fitsSystemWindows="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/orange"
+                    android:elevation="0dp"
+                    android:fitsSystemWindows="true"
+                    android:theme="@style/ToolBarTheme"
+                    app:contentInsetEnd="0dp"
+                    app:contentInsetLeft="0dp"
+                    app:contentInsetRight="0dp"
+                    app:contentInsetStart="0dp"
+                    app:contentInsetStartWithNavigation="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:navigationIcon="@drawable/ic_black_left_arrow_24dp"
+                    app:titleTextAppearance="@style/ToolBarTextAppearance"
+                    app:titleTextColor="@color/white"
+                    tools:title="@tools:sample/lorem" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSortBy"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:backgroundTint="@color/white_eff6ff"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="@string/sort_by"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10ssp"
+                    android:visibility="gone"
+                    app:elevation="@dimen/_12sdp"
+                    app:icon="@drawable/ic_black_plus_12dp"
+                    app:iconGravity="textEnd"
+                    app:iconPadding="@dimen/_4sdp"
+                    app:iconTint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nestedScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:fillViewport="true">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:fitsSystemWindows="true"
+                    android:paddingBottom="@dimen/_60sdp">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/startGuideLine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_begin="@dimen/_16sdp" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/endGuideLine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_end="@dimen/_16sdp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvMyCart"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:background="@color/white"
+                        android:nestedScrollingEnabled="false"
+                        android:paddingStart="@dimen/_12sdp"
+                        android:paddingEnd="@dimen/_12sdp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:itemCount="2"
+                        tools:listitem="@layout/item_shop_and_pick_up_my_cart" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilDeliveryOption"
+                        style="@style/TextInputLayoutStyleDropDown"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_32sdp"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:background="@color/white"
+                        android:imeOptions="actionDone"
+                        app:endIconDrawable="@drawable/ic_arrow_down_black_24dp"
+                        app:endIconTint="@color/black"
+                        app:hintEnabled="false"
+                        app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+                        app:layout_constraintStart_toStartOf="@id/startGuideLine"
+                        app:layout_constraintTop_toBottomOf="@id/rvMyCart">
+
+                        <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                            android:id="@+id/tieDeliveryOption"
+                            style="@style/TextInputEditTextStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="false"
+                            android:cursorVisible="false"
+                            android:ellipsize="end"
+                            android:focusableInTouchMode="false"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:hint="@string/select_delivery_option"
+                            android:inputType="none"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray_6B6B6B"
+                            android:textSize="@dimen/_10ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/txtSelectDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="@string/select_preferred_date_of_pickup"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+                        app:layout_constraintStart_toStartOf="@id/startGuideLine"
+                        app:layout_constraintTop_toBottomOf="@+id/tilDeliveryOption" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvSelectDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:nestedScrollingEnabled="false"
+                        android:overScrollMode="never"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/startGuideLine"
+                        app:layout_constraintTop_toBottomOf="@+id/txtSelectDate"
+                        app:spanCount="4"
+                        tools:itemCount="4"
+                        tools:listitem="@layout/item_shop_and_pick_up_select_date" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/txtSelectTime"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="@string/select_preferred_time_of_pickup"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+                        app:layout_constraintStart_toStartOf="@id/startGuideLine"
+                        app:layout_constraintTop_toBottomOf="@+id/rvSelectDate" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvSelectTime"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:nestedScrollingEnabled="false"
+                        android:overScrollMode="never"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+                        app:layout_constraintStart_toStartOf="@id/startGuideLine"
+                        app:layout_constraintTop_toBottomOf="@+id/txtSelectTime"
+                        app:spanCount="4"
+                        tools:itemCount="4"
+                        tools:listitem="@layout/item_view_booking_select_time" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/txtItemTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="@string/item_total"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtItemTotalValue"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="@id/startGuideLine"
+                        app:layout_constraintTop_toBottomOf="@+id/rvSelectTime" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/txtItemTotalValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/txtItemTotal"
+                        app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+                        app:layout_constraintStart_toEndOf="@+id/txtItemTotal"
+                        tools:text="$150" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/txtTaxesAndCharges"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="@string/taxes_and_charges"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtTaxesAndChargesValue"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="@id/startGuideLine"
+                        app:layout_constraintTop_toBottomOf="@+id/txtItemTotal" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/txtTaxesAndChargesValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/txtTaxesAndCharges"
+                        app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+                        app:layout_constraintStart_toEndOf="@+id/txtTaxesAndCharges"
+                        tools:text="$150" />
+
+                    <View
+                        android:id="@+id/viewTexasAndChargesLine"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:background="@color/gray_c9cacc"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtTaxesAndCharges" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/txtTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="@string/total"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintEnd_toStartOf="@+id/txtTotalValue"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="@id/startGuideLine"
+                        app:layout_constraintTop_toBottomOf="@+id/viewTexasAndChargesLine" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/txtTotalValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/txtTotal"
+                        app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+                        app:layout_constraintStart_toEndOf="@+id/txtTotal"
+                        tools:text="$150" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPayAmount"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_42sdp"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:backgroundTint="@color/orange"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/pay_amount"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp"
+            app:cornerRadius="@dimen/_16sdp" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

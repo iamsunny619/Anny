@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.starter.anny">
 
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <application
         android:name="com.starter.anny.BaseApp"
         android:allowBackup="true"
@@ -11,10 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.starter.anny.ui.bottomnav.explore.shopandorder.ShopAndOrderHostActivity"/>
+        <activity android:name="com.starter.anny.ui.bottomnav.explore.shopandorder.ShopAndOrderHostActivity" />
         <activity android:name="com.starter.anny.ui.loginsiginup.LoginActivity" />
         <activity android:name="com.starter.anny.ui.sidedrawer.DrawerHomeActivity" />
-        <activity android:name="com.starter.anny.ui.SplashActivity">
+        <activity
+            android:name="com.starter.anny.ui.SplashActivity"
+            android:theme="@style/SpashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
