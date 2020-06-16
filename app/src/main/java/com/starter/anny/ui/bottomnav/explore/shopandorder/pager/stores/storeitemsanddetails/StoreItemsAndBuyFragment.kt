@@ -72,7 +72,7 @@ class StoreItemsAndBuyFragment : BaseBindingFragment<FragmentStoreItemsAndBuyBin
             itemSelectedFromModel = listOf(itemModel!!)
             when (view.id) {
                 R.id.imgPlus -> {
-                    if (itemModel?.itemChanged == true) {
+                    if (itemModel.itemChanged == true) {
                         numberItem += 1
                         totalPrice += itemModel.itemPrice!!.toDouble()
                         binding.txtItemCount.text =
@@ -82,7 +82,7 @@ class StoreItemsAndBuyFragment : BaseBindingFragment<FragmentStoreItemsAndBuyBin
                 }
 
                 R.id.imgMinus -> {
-                    if (numberItem > 0 && totalPrice > 0 && itemModel?.itemChanged == true) {
+                    if (numberItem > 0 && totalPrice > 0 && itemModel.itemChanged == true) {
                         numberItem -= 1
                         totalPrice -= itemModel.itemPrice!!.toDouble()
                         binding.txtItemCount.text =

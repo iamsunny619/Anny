@@ -16,6 +16,7 @@ import com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.storeitem
 import com.starter.anny.ui.utils.app.AppUtils
 import kotlinx.android.synthetic.main.fragment_cart.*
 import kotlinx.android.synthetic.main.fragment_store_items_and_buy.*
+import kotlinx.android.synthetic.main.item_shop_and_pick_up_my_cart.*
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import kotlin.math.log
@@ -48,13 +49,16 @@ class CartFragment : BaseBindingFragment<FragmentCartBinding>() {
         }
         initData()
         initCartDataRV()
+        // itemPrice= (item?.itemCount?.times(item.itemPrice!!))!!.toDouble()
+
     }
 
     private fun initCartDataRV() {
         data?.forEachIndexed { _, storeItemModel ->
             if (storeItemModel.itemCount!! > 0) {
                 items?.add(storeItemModel)
-                itemPrice += storeItemModel.itemPrice?.toDouble() ?: 0.0
+              //  itemPrice += storeItemModel.itemPrice?.toDouble() ?: 0.0
+                itemPrice=(storeItemModel.itemCount!! * storeItemModel.itemPrice!!).toDouble()
             }
         }
         if (itemPrice < 0) {
@@ -64,13 +68,15 @@ class CartFragment : BaseBindingFragment<FragmentCartBinding>() {
         Log.d("aaa", items.toString())
 
         items?.let {
-            val demo:List<StoreItemModel> = it
+            val demo: List<StoreItemModel> = it
             shopAndPickUpMyCartAdapter =
                 ShopAndPickUpMyCartAdapter(demo) { view, position, item ->
+                    Log.d("count", item?.itemCount.toString())
                     when (view.id) {
                         R.id.imgPlus -> {
                             if (item?.itemChanged == true) {
-                                itemPrice += item.itemPrice?.toDouble() ?: 0.0
+                               // itemPrice += item.itemPrice?.toDouble() ?: 0.0
+                                itemPrice=(item.itemCount!! * item.itemPrice!!).toDouble()
                             }
                         }
                         R.id.imgMinus -> {
