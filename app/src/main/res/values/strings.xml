@@ -53,4 +53,15 @@
     <string name="select_preferred_date_of_pickup">select prefer date of pickup</string>
     <string name="select_delivery_option">select deleviery option</string>
     <string name="sort_by">sort by</string>
+    <string name="dollar_symbol_f">$%.2f</string>
+    <string name="pay_dollar_symbol_f">pay $%.2f</string>
+    <string name="s_s">%s %s</string>
+
+
+    <string-array name="shop_and_pickup_delivery_options">
+        <item>Curbside Pickup</item>
+        <item>Home Delivery</item>
+        <item>Pickup at Customer Counter</item>
+        <item>In Store</item>
+    </string-array>
 </resources>

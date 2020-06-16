@@ -34,7 +34,7 @@ class StoreItemsAndBuyFragment : BaseBindingFragment<FragmentStoreItemsAndBuyBin
     private var numberItem = 0
     private var totalPrice: Double = 0.0
 
-    private var itemSelectedFromModel: StoreItemModel? = null
+    private var itemSelectedFromModel: List<StoreItemModel> = emptyList()
     private val navController
         get() = requireParentFragment().findNavController()
 
@@ -69,7 +69,7 @@ class StoreItemsAndBuyFragment : BaseBindingFragment<FragmentStoreItemsAndBuyBin
                 StoreItemModel("Cake", "Mast Swadist Cake", "150gm", 100, img3)
             )
         ) { view, _, itemModel ->
-            itemSelectedFromModel = itemModel
+            itemSelectedFromModel = listOf(itemModel!!)
             when (view.id) {
                 R.id.imgPlus -> {
                     if (itemModel?.itemChanged == true) {
@@ -113,7 +113,7 @@ class StoreItemsAndBuyFragment : BaseBindingFragment<FragmentStoreItemsAndBuyBin
                     if (numberItem > 0 && totalPrice > 0) {
                         val args =
                             StoreItemsAndBuyFragmentDirections.actionStoreItemsAndBuyFragmentToCartFragment(
-                                itemSelectedFromModel
+                                itemSelectedFromModel.toTypedArray()
                             )
                         navController.navigate(args)
                     } else {

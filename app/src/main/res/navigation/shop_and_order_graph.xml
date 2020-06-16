@@ -37,7 +37,7 @@
 
         <argument
             android:name="cartItemFound"
-            app:argType="com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.storeitemsanddetails.model.StoreItemModel"
+            app:argType="com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.storeitemsanddetails.model.StoreItemModel[]"
             app:nullable="true" />
     </fragment>
 

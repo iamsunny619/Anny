@@ -73,7 +73,7 @@
                 android:fontFamily="@font/montserrat_bold"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:text='@{items.itemName ?? ""}'
+                android:text='@{items.itemName ?? "Not found"}'
                 android:textColor="@color/black"
                 android:textSize="@dimen/_11ssp"
                 app:layout_constraintEnd_toStartOf="@+id/ibDelete"
@@ -102,7 +102,7 @@
                 android:ellipsize="end"
                 android:fontFamily="@font/montserrat_medium"
                 android:maxLines="2"
-                android:text='@{items.itemDescription ?? ""}'
+                android:text='@{items.itemDescription ?? "not found"}'
                 android:textColor="@color/black"
                 android:textSize="@dimen/_11ssp"
                 app:layout_constraintEnd_toEndOf="@+id/txtName"
@@ -194,7 +194,7 @@
                 android:paddingStart="@dimen/_2sdp"
                 android:paddingEnd="@dimen/_2sdp"
                 android:singleLine="true"
-                android:text='@{items.itemPrice ?? ""}'
+                android:text='@{items.itemPrice.toString() ?? "0.0"}'
                 android:textColor="@color/black"
                 android:textSize="@dimen/_9ssp"
                 android:visibility="gone"
@@ -213,7 +213,7 @@
                 android:fontFamily="@font/montserrat_bold"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:text="@{items.itemPrice}"
+                android:text="@{items.itemPrice.toString()}"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_9ssp"
                 app:layout_constraintBottom_toBottomOf="@id/numberPicker"
