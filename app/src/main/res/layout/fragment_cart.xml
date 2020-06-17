@@ -135,6 +135,7 @@
                         android:imeOptions="actionDone"
                         app:endIconDrawable="@drawable/ic_arrow_down_black_24dp"
                         app:endIconTint="@color/black"
+                        app:layout_goneMarginTop="@dimen/_2sdp"
                         app:hintEnabled="false"
                         app:layout_constraintEnd_toEndOf="@id/endGuideLine"
                         app:layout_constraintStart_toStartOf="@id/startGuideLine"

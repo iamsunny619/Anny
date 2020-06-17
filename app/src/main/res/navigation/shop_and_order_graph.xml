@@ -39,6 +39,33 @@
             android:name="cartItemFound"
             app:argType="com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.storeitemsanddetails.model.StoreItemModel[]"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_cartFragment_to_successMessageBottomSheetFragment"
+            app:destination="@id/successMessageBottomSheetFragment" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/successMessageBottomSheetFragment"
+        android:name="com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.storeitemsanddetails.cart.successbottomsheet.SuccessMessageBottomSheetFragment"
+        android:label="SuccessMessageBottomSheetFragment"
+        tools:layout="@layout/fragment_success_messgae_bottom_sheet">
+        <argument
+            android:name="sheetData"
+            app:argType="com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.storeitemsanddetails.model.StoreItemModel[]"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_successMessageBottomSheetFragment_to_orderDetailsFragment"
+            app:destination="@id/orderDetailsFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/orderDetailsFragment"
+        android:name="com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.storeitemsanddetails.cart.successbottomsheet.orderdetails.OrderDetailsFragment"
+        android:label="OrderDetailsFragment"
+        tools:layout="@layout/fragment_order_details" >
+        <argument
+            android:name="orderDetails"
+            app:argType="com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.storeitemsanddetails.model.StoreItemModel[]"
+            app:nullable="true" />
     </fragment>
 
 </navigation>

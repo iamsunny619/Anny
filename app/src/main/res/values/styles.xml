@@ -99,4 +99,16 @@
         <item name="android:textColorHint">@color/gray_707070</item>
         <item name="android:fontFamily">@font/montserrat_regular</item>
     </style>
+
+    <style name="CustomBottomSheetCurvedCornered" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/customCardview</item>
+    </style>
+
+    <style name="customCardview">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/_18sdp</item>
+        <item name="cornerSizeTopRight">@dimen/_18sdp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
 </resources>

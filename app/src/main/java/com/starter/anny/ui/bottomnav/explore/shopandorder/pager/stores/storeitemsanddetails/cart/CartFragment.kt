@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DefaultItemAnimator
 import com.starter.anny.R
@@ -21,14 +22,17 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 import kotlin.math.log
 
-class CartFragment : BaseBindingFragment<FragmentCartBinding>() {
+class CartFragment : BaseBindingFragment<FragmentCartBinding>(), View.OnClickListener {
     override val content: Int
         get() = R.layout.fragment_cart
+
+    private val parentNavController
+        get() = requireParentFragment().findNavController()
 
     private var itemPrice = 0.0
 
     private val argsData: CartFragmentArgs by navArgs()
-    private var data: List<StoreItemModel>? = emptyList()
+    private var data: List<StoreItemModel>? = ArrayList()
     private var items: MutableList<StoreItemModel>? = ArrayList()
     private var deliveryAdapter: ArrayAdapter<String>? = null
     private lateinit var shopAndPickUpMyCartAdapter: ShopAndPickUpMyCartAdapter
@@ -47,18 +51,18 @@ class CartFragment : BaseBindingFragment<FragmentCartBinding>() {
         toolbar.setNavigationOnClickListener {
             requireActivity().onBackPressed()
         }
+        btnPayAmount.setOnClickListener(this)
+
         initData()
         initCartDataRV()
-        // itemPrice= (item?.itemCount?.times(item.itemPrice!!))!!.toDouble()
-
     }
 
     private fun initCartDataRV() {
         data?.forEachIndexed { _, storeItemModel ->
             if (storeItemModel.itemCount!! > 0) {
                 items?.add(storeItemModel)
-              //  itemPrice += storeItemModel.itemPrice?.toDouble() ?: 0.0
-                itemPrice=(storeItemModel.itemCount!! * storeItemModel.itemPrice!!).toDouble()
+                //  itemPrice += storeItemModel.itemPrice?.toDouble() ?: 0.0
+                itemPrice = (storeItemModel.itemCount!! * storeItemModel.itemPrice!!).toDouble()
             }
         }
         if (itemPrice < 0) {
@@ -75,14 +79,17 @@ class CartFragment : BaseBindingFragment<FragmentCartBinding>() {
                     when (view.id) {
                         R.id.imgPlus -> {
                             if (item?.itemChanged == true) {
-                               // itemPrice += item.itemPrice?.toDouble() ?: 0.0
-                                itemPrice=(item.itemCount!! * item.itemPrice!!).toDouble()
+
+                                itemPrice = (item.itemCount!! * item.itemPrice!!).toDouble()
                             }
                         }
                         R.id.imgMinus -> {
                             if (item?.itemChanged == true) {
                                 itemPrice -= item.itemPrice?.toDouble() ?: 0.0
                             }
+                        }
+                        R.id.ibDelete -> {
+                            items?.remove(item)
                         }
                     }
                     if (itemPrice < 0)
@@ -132,6 +139,18 @@ class CartFragment : BaseBindingFragment<FragmentCartBinding>() {
                 rvSelectDate.visibility = View.GONE
                 txtSelectTime.visibility = View.GONE
                 rvSelectTime.visibility = View.GONE
+            }
+        }
+    }
+
+    override fun onClick(p0: View?) {
+        when (p0?.id) {
+            R.id.btnPayAmount -> {
+                val args =
+                    CartFragmentDirections.actionCartFragmentToSuccessMessageBottomSheetFragment(
+                        items?.toTypedArray()
+                    )
+                parentNavController.navigate(args)
             }
         }
     }

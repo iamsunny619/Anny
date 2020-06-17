@@ -42,6 +42,7 @@ class ShopAndPickUpMyCartAdapter(
         holder.itemView.setOnClickListener(holder)
         holder.itemView.imgMinus.setOnClickListener(holder)
         holder.itemView.imgPlus.setOnClickListener(holder)
+        holder.itemView.ibDelete.setOnClickListener(holder)
     }
 
     override fun getItemCount(): Int {

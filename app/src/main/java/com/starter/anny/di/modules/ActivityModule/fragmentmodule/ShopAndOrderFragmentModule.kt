@@ -5,6 +5,8 @@ import com.starter.anny.ui.bottomnav.explore.shopandorder.ShopAndOrderFragment
 import com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.StoresFragment
 import com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.storeitemsanddetails.StoreItemsAndBuyFragment
 import com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.storeitemsanddetails.cart.CartFragment
+import com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.storeitemsanddetails.cart.successbottomsheet.SuccessMessageBottomSheetFragment
+import com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.storeitemsanddetails.cart.successbottomsheet.orderdetails.OrderDetailsFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -25,4 +27,12 @@ interface ShopAndOrderFragmentModule {
     @FragmentScoped
     @ContributesAndroidInjector
     fun contributeCartFragment(): CartFragment
+
+    @FragmentScoped
+    @ContributesAndroidInjector
+    fun contributrSuccessMessageBottomSheetFragment(): SuccessMessageBottomSheetFragment
+
+    @FragmentScoped
+    @ContributesAndroidInjector
+    fun contributeOrderDetailsFragment(): OrderDetailsFragment
 }
