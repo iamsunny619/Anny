@@ -11,7 +11,7 @@
 
         <variable
             name="storeModel"
-            type="com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.model.StoresModel" />
+            type="com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.model.GetShopAndPickUpStoresData" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -48,7 +48,7 @@
 
                 <com.facebook.drawee.view.SimpleDraweeView
                     android:id="@+id/imgProduct"
-                    imageResourceForFresco="@{storeModel.productImage}"
+                    imageUriForFresco="@{storeModel.imageURL}"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
@@ -71,7 +71,7 @@
                 android:fontFamily="@font/montserrat_bold"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:text='@{storeModel.shopName}'
+                android:text='@{storeModel.retailerName}'
                 android:textColor="@color/black"
                 android:textSize="@dimen/_11ssp"
                 app:layout_constraintEnd_toStartOf="@+id/imgArrow"
@@ -87,7 +87,7 @@
                 android:ellipsize="end"
                 android:fontFamily="@font/montserrat_medium"
                 android:maxLines="2"
-                android:text='@{storeModel.shopAddress}'
+                android:text='@{storeModel.storeAddress}'
                 android:textColor="@color/black"
                 android:textSize="@dimen/_11ssp"
                 app:layout_constraintEnd_toEndOf="@+id/txtName"

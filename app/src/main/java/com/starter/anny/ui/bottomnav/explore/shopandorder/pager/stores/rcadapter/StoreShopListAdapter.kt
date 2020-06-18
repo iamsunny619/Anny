@@ -7,11 +7,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.starter.anny.R
 import com.starter.anny.databinding.ItemShopPagerStoresBinding
+import com.starter.anny.domain.shopandpickup.entity.GetShopAndPickUpStoresEntity
+import com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.model.GetShopAndPickUpStoresData
 import com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.model.StoresModel
 
 class StoreShopListAdapter(
-    items: List<StoresModel>,
-    private val itemClick: (view: View, position: Int, storeModel: StoresModel?) -> Unit
+    items: List<GetShopAndPickUpStoresData>,
+    private val itemClick: (view: View, position: Int, storeModel: GetShopAndPickUpStoresData?) -> Unit
 ) :
     RecyclerView.Adapter<StoreShopListAdapter.ViewHolder>() {
 
@@ -46,7 +48,7 @@ class StoreShopListAdapter(
         RecyclerView.ViewHolder(binding.root), View.OnClickListener {
         override fun onClick(v: View?) {
             v?.let {
-                itemClick.invoke(it, adapterPosition, items[adapterPosition])
+                itemClick.invoke(it, adapterPosition, items.get(adapterPosition))
             }
         }
 
