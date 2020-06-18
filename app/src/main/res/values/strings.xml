@@ -60,6 +60,9 @@
     <string name="make_sure_to_bring_your_id_proofs_or_details_to_your_payment_used_for_the_order">make sure to bring your id proffs or details to the payement used for the order</string>
     <string name="we_will_send_you_an_email_notification_message_when_its_ready_with_instruction_on_where_to_collect_our_items">We will send you an Email/Notification message when its ready with instruction on where to collect our items.</string>
     <string name="thanks_for_shopping_with_us">Thanks for shopping with us</string>
+    <string name="error_no_network">No Internet Connection Found</string>
+    <string name="error_bad_request">Bad Request</string>
+    <string name="error_internal_error">Internal Error</string>
 
 
     <string-array name="shop_and_pickup_delivery_options">
