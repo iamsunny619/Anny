@@ -8,8 +8,8 @@
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:layout_width="match_parent"
         android:id="@+id/swipeRL"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <androidx.core.widget.NestedScrollView
@@ -36,19 +36,43 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/searchView"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="@drawable/bg_searchview"
+                    android:elevation="@dimen/_6sdp"
+                    app:defaultQueryHint="serach shop name"
+                    app:iconifiedByDefault="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtTopBrands"
+                    app:searchIcon="@drawable/ic_blue_search_24dp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtResultFound"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:layout_constraintStart_toStartOf="@id/searchView"
+                    app:layout_constraintTop_toBottomOf="@id/searchView"
+                    tools:text="2 found" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvShopStoresList"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:nestedScrollingEnabled="false"
-                    tools:listitem="@layout/item_shop_pager_stores"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/txtTopBrands"
-                    app:layout_constraintTop_toBottomOf="@+id/txtTopBrands"
-                    tools:itemCount="4" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtResultFound"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/item_shop_pager_stores" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
