@@ -77,7 +77,7 @@ class StoresFragment : BaseBindingFragment<FragmentStoresBinding>(),
     }
 
     private fun initMedia() {
-        mediaPlayer = MediaPlayer.create(requireContext(),R.raw.twitter)
+        mediaPlayer = MediaPlayer.create(requireContext(), R.raw.twitter)
     }
 
     private fun initSearchView() {
