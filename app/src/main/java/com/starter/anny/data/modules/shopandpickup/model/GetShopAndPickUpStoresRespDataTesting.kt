@@ -1,11 +1,10 @@
-package com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.model
+package com.starter.anny.data.modules.shopandpickup.model
 
 import androidx.annotation.Keep
-
 import com.google.gson.annotations.SerializedName
 
 @Keep
-data class GetShopAndPickUpStoresData(
+data class GetShopAndPickUpStoresRespDataTesting(
     @SerializedName("message")
     val message: String?, // Stores Available
     @SerializedName("responseData")

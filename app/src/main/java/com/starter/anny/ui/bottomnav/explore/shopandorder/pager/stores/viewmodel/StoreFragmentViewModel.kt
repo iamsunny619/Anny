@@ -2,11 +2,9 @@ package com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.viewmode
 
 import android.app.Application
 import android.util.Log
-import androidx.databinding.BaseObservable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.starter.anny.domain.shopandpickup.entity.GetShopAndPickUpStoresEntity
 import com.starter.anny.domain.shopandpickup.usecase.GetShopAndPickUpUseCase
 import com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.model.GetShopAndPickUpStoresData
 import com.starter.anny.ui.utils.SingleLiveEvent
@@ -20,8 +18,8 @@ class StoreFragmentViewModel @Inject constructor(
     val app: Application
 ) : BaseObservableViewModel(app) {
 
-    private val _getShopAndPickUpStores = MutableLiveData<List<GetShopAndPickUpStoresData>?>()
-    val getShopAndPickUpStores: LiveData<List<GetShopAndPickUpStoresData>?> =
+    private val _getShopAndPickUpStores = MutableLiveData<GetShopAndPickUpStoresData>()
+    val getShopAndPickUpStores: LiveData<GetShopAndPickUpStoresData>? =
         _getShopAndPickUpStores
 
     private val _errorLiveData = SingleLiveEvent<Throwable?>()
@@ -30,6 +28,54 @@ class StoreFragmentViewModel @Inject constructor(
     private val _progressLiveData = MutableLiveData<Boolean?>()
     val progressLiveData: LiveData<Boolean?> = _progressLiveData
 
+    fun getStores(city: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            kotlin.runCatching {
+                getShopAndPickUpUseCase(GetShopAndPickUpUseCase.Params("Blacksburg"))
+            }.onSuccess {
+                _getShopAndPickUpStores.postValue(it?.run {
+                    GetShopAndPickUpStoresData(message, responseData?.map {
+                        it?.run {
+                            GetShopAndPickUpStoresData.ResponseData(
+                                bpId,
+                                categories?.map { category ->
+                                    category?.run {
+                                        GetShopAndPickUpStoresData.ResponseData.Category(
+                                            categoryId,
+                                            categoryName,
+                                            count,
+                                            subCategories?.map { subCategory ->
+                                                subCategory?.run {
+                                                    GetShopAndPickUpStoresData.ResponseData.Category.SubCategory(
+                                                        categoryId,
+                                                        count,
+                                                        subCategoryId,
+                                                        subCategoryName
+                                                    )
+                                                }
+                                            })
+                                    }
+                                },
+                                city,
+                                imageURL,
+                                retailerName,
+                                state,
+                                storeAddress,
+                                storeid,
+                                zipcode
+                            )
+                        }
+                    }, statusCode, success)
+                })
+            }.onFailure {
+                Log.e("errorFound", it.toString())
+                _errorLiveData.postValue(it)
+            }
+        }
+    }
+
+
+/*
     fun getStores(city: String) {
         var cityName = city
         if (cityName.isEmpty()) {
@@ -77,4 +123,5 @@ class StoreFragmentViewModel @Inject constructor(
             _progressLiveData.postValue(false)
         }
     }
+*/
 }

@@ -21,5 +21,4 @@ class ShopAndPickUpDataSourceFactory @Inject constructor(
 
     override val remoteDataSource: ShopAndPickUpDataSource =
         RemoteShopAndPickUpDataSource(networkErrorInterCeptor)
-
 }

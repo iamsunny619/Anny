@@ -1,8 +1,8 @@
 package com.starter.anny.data.modules.shopandpickup
 
-import com.starter.anny.data.modules.shopandpickup.model.GetShopAndPickUpStoresRespData
+import com.starter.anny.data.modules.shopandpickup.model.GetShopAndPickUpStoresRespDataTesting
 
 interface ShopAndPickUpDataSource {
 
-    suspend fun getShopAndPickupStores(city: String): List<GetShopAndPickUpStoresRespData>?
+    suspend fun getShopAndPickupStores(city: String): GetShopAndPickUpStoresRespDataTesting
 }

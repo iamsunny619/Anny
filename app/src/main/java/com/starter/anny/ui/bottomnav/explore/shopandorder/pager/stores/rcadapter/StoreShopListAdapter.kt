@@ -1,5 +1,6 @@
 package com.starter.anny.ui.bottomnav.explore.shopandorder.pager.stores.rcadapter
 
+/*
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -121,3 +122,4 @@ class StoreShopListAdapter(
 }
 
 
+*/
