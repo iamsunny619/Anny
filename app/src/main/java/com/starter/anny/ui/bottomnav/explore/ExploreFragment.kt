@@ -9,6 +9,7 @@ import com.starter.anny.ui.base.BaseBindingFragment
 import com.starter.anny.ui.bottomnav.explore.adapter.ExploreItemAdapter
 import com.starter.anny.ui.bottomnav.explore.model.ExploreItemModel
 import com.starter.anny.ui.bottomnav.explore.shopandorder.ShopAndOrderHostActivity
+import com.starter.anny.ui.bottomnav.explore.tmdb.TMDBHostActivity
 import com.starter.anny.ui.utils.Boast
 import com.starter.anny.ui.utils.app.AppUtils
 import kotlinx.android.synthetic.main.fragment_explore.*
@@ -34,7 +35,7 @@ class ExploreFragment : BaseBindingFragment<FragmentExploreBinding>() {
         exploreItemAdapter = ExploreItemAdapter(
             listOf(
                 ExploreItemModel(img1, "LiveData", true),
-                ExploreItemModel(img2, "Demo", true),
+                ExploreItemModel(img2, "MovieDb", true),
                 ExploreItemModel(img3, "ShopAndOrder", false)
             )
         ) { _, position, items ->
@@ -53,6 +54,9 @@ class ExploreFragment : BaseBindingFragment<FragmentExploreBinding>() {
                                     ShopAndOrderHostActivity::class.java
                                 )
                             )
+                        }
+                        1 -> {
+                            startActivity(Intent(requireContext(), TMDBHostActivity::class.java))
                         }
                     }
                 } else {

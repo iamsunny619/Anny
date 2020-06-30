@@ -4,6 +4,7 @@ import dagger.Module
 
 @Module(
     includes = [DataRepositoryModule::class,
-        ShopAndPickUpModule::class]
+        ShopAndPickUpModule::class,
+        TmdbModule::class]
 )
 interface DataModule

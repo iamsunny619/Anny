@@ -70,6 +70,8 @@ class StoreFragmentViewModel @Inject constructor(
             }.onFailure {
                 Log.e("errorFound", it.toString())
                 _errorLiveData.postValue(it)
+            }.onFailure {
+                _errorLiveData.postValue(it)
             }
         }
     }

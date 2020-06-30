@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tmdb_nav_graph"
+    app:startDestination="@id/tmdbHomeFragment">
+
+    <fragment
+        tools:layout="@layout/fragment_tmdb_home"
+        android:id="@+id/tmdbHomeFragment"
+        android:name="com.starter.anny.ui.bottomnav.explore.tmdb.module.TmdbHomeFragment"
+        android:label="TmdbHomeFragment" />
+</navigation>

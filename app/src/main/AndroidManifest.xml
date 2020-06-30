@@ -7,18 +7,19 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
-        android:name="com.starter.anny.BaseApp"
+        android:name=".BaseApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.starter.anny.ui.bottomnav.explore.shopandorder.ShopAndOrderHostActivity" />
-        <activity android:name="com.starter.anny.ui.loginsiginup.LoginActivity" />
-        <activity android:name="com.starter.anny.ui.sidedrawer.DrawerHomeActivity" />
+        <activity android:name=".ui.bottomnav.explore.tmdb.TMDBHostActivity"></activity>
+        <activity android:name=".ui.bottomnav.explore.shopandorder.ShopAndOrderHostActivity" />
+        <activity android:name=".ui.loginsiginup.LoginActivity" />
+        <activity android:name=".ui.sidedrawer.DrawerHomeActivity" />
         <activity
-            android:name="com.starter.anny.ui.SplashActivity"
+            android:name=".ui.SplashActivity"
             android:theme="@style/SpashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
